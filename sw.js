@@ -1,10 +1,10 @@
-const CACHE_NAME = 'mengenlehreuhr-v1';
+const CACHE_NAME = 'mengenlehreuhr-v2';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './icons/icon-192.svg',
-  './icons/icon-512.svg'
+  './icons/icon-192.png',
+  './icons/icon-512.png'
 ];
 
 /* Installation: alle Assets cachen */
