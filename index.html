@@ -18,7 +18,7 @@
   }
   h1 {
     margin-bottom: 30px;
-    font-size: 1.6em;
+    font-size: clamp(1em, 4vw, 1.6em);
     font-weight: 300;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -26,12 +26,16 @@
   }
   #digital {
     margin-top: 24px;
-    font-size: 2.2em;
+    font-size: clamp(1.4em, 5vw, 2.2em);
     font-variant-numeric: tabular-nums;
     letter-spacing: 4px;
     color: #ffffffcc;
   }
-  svg { filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5)); }
+  svg {
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+    width: min(460px, 95vw);
+    height: auto;
+  }
 
   /* Lampen-Grundstil */
   .lamp {
@@ -50,7 +54,7 @@
 
 <h1>Mengenlehreuhr Berlin</h1>
 
-<svg id="clock" viewBox="0 0 460 340" width="460" height="340" xmlns="http://www.w3.org/2000/svg">
+<svg id="clock" viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Glow-Filter -->
     <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
