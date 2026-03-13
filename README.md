@@ -48,6 +48,8 @@ npx serve .
 - CSS **glow effects** for an authentic neon look
 - **Digital time** display below the clock
 - Updates every second
+- **Progressive Web App (PWA)** — installable on mobile and desktop
+- Works **offline** via Service Worker caching
 - Zero dependencies
 
 ## License
