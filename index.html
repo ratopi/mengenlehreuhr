@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berliner Mengenlehre-Uhr</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+  }
+  h1 {
+    margin-bottom: 30px;
+    font-size: 1.6em;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ccc;
+  }
+  #digital {
+    margin-top: 24px;
+    font-size: 2.2em;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 4px;
+    color: #ffffffcc;
+  }
+  svg { filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5)); }
+
+  /* Lampen-Grundstil */
+  .lamp {
+    stroke: #333;
+    stroke-width: 2;
+    transition: fill 0.25s ease;
+  }
+  .lamp.off        { fill: #2a2a2a; }
+  .lamp.red        { fill: #e01010; filter: url(#glow-red); }
+  .lamp.yellow     { fill: #eec800; filter: url(#glow-yellow); }
+  .lamp.sec-on     { fill: #eec800; filter: url(#glow-yellow); }
+  .lamp.sec-off    { fill: #2a2a2a; }
+</style>
+</head>
+<body>
+
+<h1>Mengenlehreuhr Berlin</h1>
+
+<svg id="clock" viewBox="0 0 460 340" width="460" height="340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Glow-Filter -->
+    <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#e01010" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-yellow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#eec800" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Reihe 0: Sekunden-Lampe (Kreis, oben mittig) -->
+  <circle id="sec" class="lamp off" cx="230" cy="30" r="24"/>
+
+  <!-- Reihe 1: 4 × 5-Stunden (rot) -->
+  <rect id="h5_0" class="lamp off" x="10"  y="70"  width="104" height="44" rx="6"/>
+  <rect id="h5_1" class="lamp off" x="120" y="70"  width="104" height="44" rx="6"/>
+  <rect id="h5_2" class="lamp off" x="230" y="70"  width="104" height="44" rx="6"/>
+  <rect id="h5_3" class="lamp off" x="340" y="70"  width="104" height="44" rx="6"/>
+
+  <!-- Reihe 2: 4 × 1-Stunde (rot) -->
+  <rect id="h1_0" class="lamp off" x="10"  y="126" width="104" height="44" rx="6"/>
+  <rect id="h1_1" class="lamp off" x="120" y="126" width="104" height="44" rx="6"/>
+  <rect id="h1_2" class="lamp off" x="230" y="126" width="104" height="44" rx="6"/>
+  <rect id="h1_3" class="lamp off" x="340" y="126" width="104" height="44" rx="6"/>
+
+  <!-- Reihe 3: 11 × 5-Minuten (gelb, jedes 3. rot) -->
+  <rect id="m5_0"  class="lamp off" x="10"  y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_1"  class="lamp off" x="50"  y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_2"  class="lamp off" x="90"  y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_3"  class="lamp off" x="130" y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_4"  class="lamp off" x="170" y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_5"  class="lamp off" x="210" y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_6"  class="lamp off" x="250" y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_7"  class="lamp off" x="290" y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_8"  class="lamp off" x="330" y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_9"  class="lamp off" x="370" y="182" width="36" height="44" rx="4"/>
+  <rect id="m5_10" class="lamp off" x="410" y="182" width="36" height="44" rx="4"/>
+
+  <!-- Reihe 4: 4 × 1-Minute (gelb) -->
+  <rect id="m1_0" class="lamp off" x="10"  y="238" width="104" height="44" rx="6"/>
+  <rect id="m1_1" class="lamp off" x="120" y="238" width="104" height="44" rx="6"/>
+  <rect id="m1_2" class="lamp off" x="230" y="238" width="104" height="44" rx="6"/>
+  <rect id="m1_3" class="lamp off" x="340" y="238" width="104" height="44" rx="6"/>
+
+  <!-- Beschriftungen -->
+  <text x="230" y="310" text-anchor="middle" fill="#555" font-size="11" font-family="monospace">5H · 1H · 5M · 1M</text>
+</svg>
+
+<div id="digital">00:00:00</div>
+
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+
+  /* Elemente cachen */
+  const sec   = $('sec');
+  const h5    = [0,1,2,3].map(i => $('h5_' + i));
+  const h1    = [0,1,2,3].map(i => $('h1_' + i));
+  const m5    = Array.from({length: 11}, (_, i) => $('m5_' + i));
+  const m1    = [0,1,2,3].map(i => $('m1_' + i));
+  const digi  = $('digital');
+
+  function setClass(el, cls) {
+    el.className.baseVal = 'lamp ' + cls;
+  }
+
+  function update() {
+    const now = new Date();
+    const hours   = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    /* --- Sekunden-Lampe: an bei geraden Sekunden --- */
+    setClass(sec, seconds % 2 === 0 ? 'sec-on' : 'sec-off');
+
+    /* --- Reihe 1: 5-Stunden --- */
+    const fiveH = Math.floor(hours / 5);
+    h5.forEach((el, i) => setClass(el, i < fiveH ? 'red' : 'off'));
+
+    /* --- Reihe 2: 1-Stunden --- */
+    const oneH = hours % 5;
+    h1.forEach((el, i) => setClass(el, i < oneH ? 'red' : 'off'));
+
+    /* --- Reihe 3: 5-Minuten --- */
+    const fiveM = Math.floor(minutes / 5);
+    m5.forEach((el, i) => {
+      if (i < fiveM) {
+        // jedes 3. Feld (Index 2, 5, 8 → Viertelstunden) ist rot
+        setClass(el, (i + 1) % 3 === 0 ? 'red' : 'yellow');
+      } else {
+        setClass(el, 'off');
+      }
+    });
+
+    /* --- Reihe 4: 1-Minuten --- */
+    const oneM = minutes % 5;
+    m1.forEach((el, i) => setClass(el, i < oneM ? 'yellow' : 'off'));
+
+    /* Digitale Anzeige */
+    digi.textContent =
+      String(hours).padStart(2, '0') + ':' +
+      String(minutes).padStart(2, '0') + ':' +
+      String(seconds).padStart(2, '0');
+  }
+
+  update();
+  setInterval(update, 1000);
+})();
+</script>
+
+</body>
+</html>
+
