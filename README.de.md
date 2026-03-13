@@ -2,6 +2,8 @@
 
 🇬🇧 [English Version](README.md)
 
+👉 **[Live Demo](https://ratopi.github.io/mengenlehreuhr/)**
+
 Eine reine HTML/SVG/JS-Umsetzung der berühmten **Berliner Mengenlehreuhr**, die seit 1975 am Europa-Center in Berlin steht. Entworfen von Dieter Binninger, ist sie die weltweit erste öffentliche Uhr, die die Uhrzeit nach dem Prinzip der Mengenlehre darstellt.
 
 ## Wie liest man die Uhr?

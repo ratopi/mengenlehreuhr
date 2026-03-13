@@ -2,6 +2,8 @@
 
 🇩🇪 [Deutsche Version](README.de.md)
 
+👉 **[Live Demo](https://ratopi.github.io/mengenlehreuhr/)**
+
 A pure HTML/SVG/JS implementation of the famous **Berlin Set Theory Clock** (_Mengenlehreuhr_), located at the Europa-Center in Berlin since 1975. Designed by Dieter Binninger, it is the world's first public clock to display time using set theory principles.
 
 ## How to Read the Clock
